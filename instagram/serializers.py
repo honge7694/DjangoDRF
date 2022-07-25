@@ -10,10 +10,10 @@ class AuthorSerializer(serializers.ModelSerializer):
 
 
 class PostSerializer(serializers.ModelSerializer):
-    # username = serializers.ReadOnlyField(source='author.username')
-    author = AuthorSerializer()
+    author_username = serializers.ReadOnlyField(source='author.username')
+    # author = AuthorSerializer()
 
     class Meta:
         model = Post
-        # fields = ['pk', 'username', 'message', 'created_at', 'updated_at']
-        fields = ['pk', 'author', 'message', 'created_at', 'updated_at']
+        fields = ['pk', 'author_username', 'message', 'created_at', 'updated_at', 'is_public']
+        # fields = ['pk', 'author', 'message', 'created_at', 'updated_at', 'is_public']
